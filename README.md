@@ -1,4 +1,6 @@
 # WoWRetroLauncher
+![workflow](https://github.com/valsan-azerty-boi/WoWRetroLauncher/actions/workflows/main.yml/badge.svg)
+
 A retro launcher fork based on Parquelle/WoWRetroLauncher with a lot of compatibility
 
 ![image](docs/Launcher32.png) ![image](docs/Launcher64.png)
