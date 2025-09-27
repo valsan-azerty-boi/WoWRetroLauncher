@@ -284,7 +284,10 @@ namespace WoWRetroLauncher
             buttonPlay.OnRelease(null, null);
             if (Helper.DisableButtons())
             {
-                buttonPlay.BackgroundImage = TextureManager.GetInstance().GetPlayButtonTexture(3);
+                if (Locale == "frFR")
+                    buttonPlay.BackgroundImage = TextureManager.GetInstance().GetPlayFrButtonTexture(3);
+                else
+                    buttonPlay.BackgroundImage = TextureManager.GetInstance().GetPlayButtonTexture(3);
                 buttonPlay.Enabled = false;
             }
             else if (!buttonPlay.Enabled)
