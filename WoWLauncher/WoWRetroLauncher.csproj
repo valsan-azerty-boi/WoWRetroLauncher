@@ -31,7 +31,7 @@
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -57,7 +57,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>5B4FB2BA7970276A63F3B1C602EC61975389F5CA</ManifestCertificateThumbprint>
@@ -246,9 +246,6 @@
     <None Include="Resources\play.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="System\Windows\Forms\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\vanilla_buttonPlay.png" />
   </ItemGroup>
   <ItemGroup>
@@ -267,15 +264,20 @@
     <None Include="Resources\vanilla_buttonPlayFrPress.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon.ico" />
+    <None Include="Resources\vanilla_buttonPlayDisabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vanilla_buttonPlayFrDisabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vanilla_wowLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default_background.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
     <Content Include="icon.ico" />
-    <None Include="Resources\vanilla_wowLogo.png" />
-    <None Include="Resources\default_background.png" />
-    <None Include="Resources\vanilla_buttonPlayDisabled.png" />
-    <None Include="Resources\vanilla_buttonPlayFrDisabled.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

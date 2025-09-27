@@ -91,12 +91,6 @@ namespace WoWRetroLauncher
                 webView21.CoreWebView2.NewWindowRequested += (s, args) =>
                 {
                     args.Handled = true;
-                    Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
-                };
-
-                webView21.CoreWebView2.NewWindowRequested += (s, args) =>
-                {
-                    args.Handled = true;
                     if (!string.IsNullOrEmpty(args.Uri))
                     {
                         Process.Start(new ProcessStartInfo(args.Uri) { UseShellExecute = true });
