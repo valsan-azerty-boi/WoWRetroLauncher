@@ -103,10 +103,48 @@ namespace WoWRetroLauncher
                 };
 
                 string webPageToDisplay;
-                if (Locale == "frFR")
-                    webPageToDisplay = !string.IsNullOrEmpty(Constants.WebFrameUriToLoadFr) ? Constants.WebFrameUriToLoadFr : Constants.WebFrameUriToLoad;
-                else
-                    webPageToDisplay = !string.IsNullOrEmpty(Constants.WebFrameUriToLoad) ? Constants.WebFrameUriToLoad : string.Empty;
+                switch (Locale)
+                {
+                    case "enGb":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadGb) ? LauncherConfiguration.WebFrameUriToLoadGb : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "frFR":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadFr) ? LauncherConfiguration.WebFrameUriToLoadFr : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "deDE":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadDe) ? LauncherConfiguration.WebFrameUriToLoadDe : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "itIT":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadIt) ? LauncherConfiguration.WebFrameUriToLoadIt : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "esES":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadEs) ? LauncherConfiguration.WebFrameUriToLoadEs : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "esMX":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadMx) ? LauncherConfiguration.WebFrameUriToLoadMx : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "ptBR":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadBr) ? LauncherConfiguration.WebFrameUriToLoadBr : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "ptPT":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadPt) ? LauncherConfiguration.WebFrameUriToLoadPt : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "koKR":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadKo) ? LauncherConfiguration.WebFrameUriToLoadKo : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "ruRU":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadRu) ? LauncherConfiguration.WebFrameUriToLoadRu : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "zhCN":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadCn) ? LauncherConfiguration.WebFrameUriToLoadCn : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    case "zhTW":
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadTw) ? LauncherConfiguration.WebFrameUriToLoadTw : LauncherConfiguration.WebFrameUriToLoadDefault;
+                        break;
+                    default:
+                        webPageToDisplay = !string.IsNullOrEmpty(LauncherConfiguration.WebFrameUriToLoadDefault) ? LauncherConfiguration.WebFrameUriToLoadDefault : string.Empty;
+                        break;
+                }
 
                 if (!string.IsNullOrEmpty(webPageToDisplay) && Helper.ConnectionAlive(webPageToDisplay))
                 {
@@ -216,10 +254,9 @@ namespace WoWRetroLauncher
             try
             {
                 var currentDir = AppDomain.CurrentDomain.BaseDirectory;
-                string[] candidates = { "Wow-64.exe", "Wow.exe" };
                 soundPlayer.Play();
 
-                foreach (var exeName in candidates)
+                foreach (var exeName in LauncherConfiguration.ExeFileCandidates)
                 {
                     var exePath = Path.Combine(currentDir, exeName);
                     if (!File.Exists(exePath)) continue;

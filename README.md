@@ -7,7 +7,7 @@ A retro launcher fork based on Parquelle/WoWRetroLauncher with a lot of compatib
 
 ### Features
 - Vanilla retro style
-- Automatic lang detection: English + French
+- Automatic game localization detection
 - Automatic game version detection (Retail, Classic, older versions like 1.12 / 2.4.3 / 3.3.5, etc)
 - Realmlist detection for older versions (1.12 / 2.4.3 / 3.3.5)
 - Available as 32 bit & 64 bit app

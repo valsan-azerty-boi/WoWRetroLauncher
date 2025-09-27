@@ -211,7 +211,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
+    <Compile Include="LauncherConfiguration.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Resources\LauncherMenuItem.cs" />
     <Compile Include="MainWindow.cs">

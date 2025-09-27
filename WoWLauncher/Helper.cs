@@ -14,9 +14,8 @@ namespace WoWRetroLauncher
             try
             {
                 var currentDir = AppDomain.CurrentDomain.BaseDirectory;
-                string[] candidates = { "Wow-64.exe", "Wow.exe" };
 
-                foreach (var exeName in candidates)
+                foreach (var exeName in LauncherConfiguration.ExeFileCandidates)
                 {
                     var exePath = Path.Combine(currentDir, exeName);
                     if (File.Exists(exePath))
@@ -66,8 +65,32 @@ namespace WoWRetroLauncher
                     {
                         if (line.StartsWith("SET locale", StringComparison.OrdinalIgnoreCase) || line.StartsWith("SET textLocale", StringComparison.OrdinalIgnoreCase))
                         {
+                            if (line.Contains("SET locale \"enUS\"") || line.Contains("SET textLocale \"enUS\""))
+                                return "enUS";
+                            if (line.Contains("SET locale \"enGB\"") || line.Contains("SET textLocale \"enGB\""))
+                                return "enGB";
                             if (line.Contains("SET locale \"frFR\"") || line.Contains("SET textLocale \"frFR\""))
                                 return "frFR";
+                            if (line.Contains("SET locale \"deDE\"") || line.Contains("SET textLocale \"deDE\""))
+                                return "deDE";
+                            if (line.Contains("SET locale \"itIT\"") || line.Contains("SET textLocale \"itIT\""))
+                                return "itIT";
+                            if (line.Contains("SET locale \"esES\"") || line.Contains("SET textLocale \"esES\""))
+                                return "esES";
+                            if (line.Contains("SET locale \"esMX\"") || line.Contains("SET textLocale \"esMX\""))
+                                return "esMX";
+                            if (line.Contains("SET locale \"ptBR\"") || line.Contains("SET textLocale \"ptBR\""))
+                                return "ptBR";
+                            if (line.Contains("SET locale \"ptPT\"") || line.Contains("SET textLocale \"ptPT\""))
+                                return "ptPT";
+                            if (line.Contains("SET locale \"koKR\"") || line.Contains("SET textLocale \"koKR\""))
+                                return "koKR";
+                            if (line.Contains("SET locale \"ruRU\"") || line.Contains("SET textLocale \"ruRU\""))
+                                return "ruRU";
+                            if (line.Contains("SET locale \"zhCN\"") || line.Contains("SET textLocale \"zhCN\"") || line.Contains("SET locale \"enCN\"") || line.Contains("SET textLocale \"enCN\""))
+                                return "zhCN";
+                            if (line.Contains("SET locale \"zhTW\"") || line.Contains("SET textLocale \"zhTW\"") || line.Contains("SET locale \"enTW\"") || line.Contains("SET textLocale \"enTW\""))
+                                return "zhTW";
                         }
                     }
                 }
@@ -85,11 +108,9 @@ namespace WoWRetroLauncher
             try
             {
                 var currentDir = AppDomain.CurrentDomain.BaseDirectory;
-                string[] candidates = { "Wow-64.exe", "Wow.exe" };
-
                 var realmInfo = GetRealmlist(locale);
 
-                foreach (var exeName in candidates)
+                foreach (var exeName in LauncherConfiguration.ExeFileCandidates)
                 {
                     var exePath = Path.Combine(currentDir, exeName);
                     if (File.Exists(exePath))
