@@ -1,5 +1,4 @@
-﻿using WoWRetroLauncher;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace WoWRetroLauncher
@@ -33,10 +32,10 @@ namespace WoWRetroLauncher
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.optionSkinVanilla = new System.Windows.Forms.ToolStripMenuItem();
-            this.gameDetailsLarge = new System.Windows.Forms.Label();
-            this.gameDetailsShort = new System.Windows.Forms.Label();
-            this.buttonPlay = new WoWRetroLauncher.LauncherButton();
+            this.optionSkinVanilla = new ToolStripMenuItem();
+            this.gameDetailsLarge = new Label();
+            this.gameDetailsShort = new Label();
+            this.buttonPlay = new LauncherButton();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
@@ -48,45 +47,46 @@ namespace WoWRetroLauncher
             // 
             // gameDetailsLarge
             // 
-            this.gameDetailsLarge.AutoSize = true;
+            this.gameDetailsLarge.AutoSize = false;
             this.gameDetailsLarge.BackColor = System.Drawing.Color.Transparent;
-            this.gameDetailsLarge.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameDetailsLarge.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.gameDetailsLarge.ForeColor = System.Drawing.Color.Goldenrod;
             this.gameDetailsLarge.Location = new System.Drawing.Point(12, 524);
             this.gameDetailsLarge.Name = "gameDetailsLarge";
-            this.gameDetailsLarge.Size = new System.Drawing.Size(14, 44);
+            this.gameDetailsLarge.Size = new System.Drawing.Size(400, 44);
             this.gameDetailsLarge.TabIndex = 2;
-            this.gameDetailsLarge.Text = " " + Environment.NewLine + @" ";
+            this.gameDetailsLarge.Text = string.Empty;
             // 
             // gameDetailsShort
             // 
-            this.gameDetailsShort.AutoSize = true;
+            this.gameDetailsShort.AutoSize = false;
             this.gameDetailsShort.BackColor = System.Drawing.Color.Transparent;
-            this.gameDetailsShort.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameDetailsShort.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.gameDetailsShort.ForeColor = System.Drawing.Color.Goldenrod;
             this.gameDetailsShort.Location = new System.Drawing.Point(31, 534);
             this.gameDetailsShort.Name = "gameDetailsShort";
-            this.gameDetailsShort.Size = new System.Drawing.Size(14, 22);
-            this.gameDetailsShort.TabIndex = 2;
-            this.gameDetailsShort.Text = " ";
+            this.gameDetailsShort.Size = new System.Drawing.Size(300, 22);
+            this.gameDetailsShort.TabIndex = 3;
+            this.gameDetailsShort.Text = string.Empty;
             // 
             // buttonPlay
             // 
             this.buttonPlay.BackColor = System.Drawing.Color.Transparent;
             this.buttonPlay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonPlay.BackgroundImage")));
-            this.buttonPlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPlay.BackgroundImageLayout = ImageLayout.Stretch;
+            this.buttonPlay.Cursor = Cursors.Hand;
             this.buttonPlay.FlatAppearance.BorderSize = 0;
             this.buttonPlay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonPlay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlay.FlatStyle = FlatStyle.Flat;
+            this.buttonPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Bold);
             this.buttonPlay.ForeColor = System.Drawing.Color.Transparent;
             this.buttonPlay.Location = new System.Drawing.Point(649, 506);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Size = new System.Drawing.Size(130, 74);
             this.buttonPlay.TabIndex = 0;
             this.buttonPlay.TabStop = false;
-            this.buttonPlay.Type = WoWRetroLauncher.LauncherButton.ButtonType.Play;
+            this.buttonPlay.Type = LauncherButton.ButtonType.Play;
             this.buttonPlay.UseMnemonic = false;
             this.buttonPlay.UseVisualStyleBackColor = false;
             this.buttonPlay.Click += new System.EventHandler(this.Click_play);
@@ -100,16 +100,15 @@ namespace WoWRetroLauncher
             this.webView21.Location = new System.Drawing.Point(1, 39);
             this.webView21.Name = "webView21";
             this.webView21.Size = new System.Drawing.Size(798, 443);
-            this.webView21.TabIndex = 3;
+            this.webView21.TabIndex = 4;
             this.webView21.ZoomFactor = 1D;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::WoWRetroLauncher.Properties.Resources.default_background;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 601);
             this.Controls.Add(this.gameDetailsLarge);
             this.Controls.Add(this.gameDetailsShort);
@@ -117,26 +116,25 @@ namespace WoWRetroLauncher
             this.Controls.Add(this.webView21);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Transparent;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "World of Warcraft";
-            this.Load += new System.EventHandler(this.OnLoad);
+            this.Load += new System.EventHandler(this.MainWindow_Load);
+            this.Resize += new System.EventHandler(this.MainWindow_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
 
         private LauncherButton buttonPlay;
-        private System.Windows.Forms.ToolStripMenuItem optionSkinVanilla;
+        private ToolStripMenuItem optionSkinVanilla;
         private Label gameDetailsLarge;
         private Label gameDetailsShort;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
     }
 }
-
