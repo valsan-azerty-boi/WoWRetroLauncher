@@ -78,6 +78,14 @@ namespace WoWRetroLauncher
                 var env = await CoreWebView2Environment.CreateAsync(userDataFolder: tempFolder);
                 await webView21.EnsureCoreWebView2Async(env);
 
+                webView21.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
+                webView21.CoreWebView2.Settings.AreDevToolsEnabled = false;
+                await webView21.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(@"
+                    document.addEventListener('contextmenu', function(e) {
+                        e.preventDefault();
+                    });
+                ");
+
                 originalWebViewZoom = webView21.ZoomFactor;
 
                 webView21.CoreWebView2.NewWindowRequested += (s, args) =>
