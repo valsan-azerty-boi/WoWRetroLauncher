@@ -217,25 +217,40 @@ namespace WoWRetroLauncher
                 }
 
                 var (versionDetails, realmDetails) = Helper.GetCurrentWoWDetails(Locale);
-                if (!string.IsNullOrEmpty(versionDetails) && string.IsNullOrEmpty(realmDetails))
+                if (!string.IsNullOrEmpty(versionDetails) && !string.IsNullOrEmpty(realmDetails))
+                {
+                    this.gameDetailsLarge.Text = @"World of Warcraft " + versionDetails + Environment.NewLine + realmDetails;
+                    this.Text = @"World of Warcraft " + versionDetails;
+                    this.gameDetailsShort.Visible = false;
+                    this.gameDetailsLarge.Visible = true;
+                }
+                else if(!string.IsNullOrEmpty(versionDetails) && string.IsNullOrEmpty(realmDetails))
                 {
                     this.gameDetailsShort.Text = @"World of Warcraft " + versionDetails;
                     this.Text = @"World of Warcraft " + versionDetails;
+                    this.gameDetailsShort.Visible = true;
+                    this.gameDetailsLarge.Visible = false;
                 }
                 else if (string.IsNullOrEmpty(versionDetails) && !string.IsNullOrEmpty(realmDetails))
                 {
                     this.gameDetailsLarge.Text = @"World of Warcraft" + Environment.NewLine + realmDetails;
                     this.Text = @"World of Warcraft Launcher";
+                    this.gameDetailsShort.Visible = false;
+                    this.gameDetailsLarge.Visible = true;
                 }
                 else if (string.IsNullOrEmpty(versionDetails) && string.IsNullOrEmpty(realmDetails))
                 {
                     this.gameDetailsShort.Text = @"World of Warcraft Launcher";
                     this.Text = @"World of Warcraft Launcher";
+                    this.gameDetailsShort.Visible = true;
+                    this.gameDetailsLarge.Visible = false;
                 }
                 else
                 {
-                    this.gameDetailsLarge.Text = @"World of Warcraft " + versionDetails + Environment.NewLine + realmDetails;
-                    this.Text = @"World of Warcraft " + versionDetails;
+                    this.gameDetailsShort.Text = @"World of Warcraft Launcher";
+                    this.Text = @"World of Warcraft Launcher";
+                    this.gameDetailsShort.Visible = true;
+                    this.gameDetailsLarge.Visible = false;
                 }
 
                 new TextureManager();

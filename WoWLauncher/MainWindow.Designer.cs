@@ -67,7 +67,7 @@ namespace WoWRetroLauncher
             this.gameDetailsShort.Name = "gameDetailsShort";
             this.gameDetailsShort.Size = new System.Drawing.Size(300, 22);
             this.gameDetailsShort.TabIndex = 3;
-            this.gameDetailsShort.Text = " ";
+            this.gameDetailsShort.Text = string.Empty;
             // 
             // buttonPlay
             // 
