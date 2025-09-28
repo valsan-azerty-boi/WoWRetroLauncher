@@ -23,5 +23,10 @@
         /// Game executable
         /// </summary>
         public static string[] ExeFileCandidates = { "Wow-64.exe", "Wow64.exe", "Wow.exe" };
+
+        /// <summary>
+        /// Temp folder name for your web frame
+        /// </summary>
+        public const string TempFolder = "WebView2TempProfileWoWRetroLauncher";
     }
 }

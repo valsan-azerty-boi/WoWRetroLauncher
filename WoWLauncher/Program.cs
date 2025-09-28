@@ -12,19 +12,30 @@ namespace WoWRetroLauncher
         [STAThread]
         static void Main()
         {
-            if (!IsNet472Installed())
+            try
             {
-                MessageBox.Show(
-                    @".NET Framework 4.7.2 is required: https://dotnet.microsoft.com/download/dotnet-framework/net472",
-                    @"Missing .NET Framework",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-                return;
+                if (!IsNet472Installed())
+                {
+                    MessageBox.Show(
+                        @".NET Framework 4.7.2 is required: https://dotnet.microsoft.com/download/dotnet-framework/net472",
+                        @"Missing .NET Framework",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
+            }
+            catch
+            {
+                // Do nothing
             }
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Application.ThreadException += Application_ThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
             Application.Run(new MainWindow());
         }
 
@@ -37,6 +48,25 @@ namespace WoWRetroLauncher
                 var release = (int)key.GetValue("Release");
                 return release >= 461808;
             }
+        }
+
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            HandleException(e.Exception);
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            HandleException(e.ExceptionObject as Exception);
+        }
+
+        private static void HandleException(Exception ex)
+        {
+#if DEBUG
+            MessageBox.Show(ex.ToString(), @"Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+#else
+            // Do Nothing, not recommended, it hides exception in release
+#endif
         }
     }
 }

@@ -74,7 +74,7 @@ namespace WoWRetroLauncher
         {
             try
             {
-                var tempFolder = Path.Combine(Path.GetTempPath(), "WebView2TempProfileWoWRetroLauncher");
+                var tempFolder = Path.Combine(Path.GetTempPath(), LauncherConfiguration.TempFolder);
                 var env = await CoreWebView2Environment.CreateAsync(userDataFolder: tempFolder);
                 await webView21.EnsureCoreWebView2Async(env);
 
